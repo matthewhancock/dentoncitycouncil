@@ -1,0 +1,14 @@
+﻿{
+  "stripe": {
+    "secretkey": "",
+    "publickey": ""
+  },
+  "queue": {
+    "name": "",
+    "key": ""
+  },
+  "helpelect": {
+    "donate": { "confirmationemail": { "to": "" } },
+    "support": { "email": { "to": "" } }
+  }
+}
