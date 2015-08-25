@@ -14,7 +14,7 @@ namespace Util {
             using (var sr = new StreamReader(f)) {
                 text = await sr.ReadToEndAsync();
             }
-            return text;
+            return text.Trim();
         }
         public static async Task<byte[]> LoadToBuffer(string FileName) {
             byte[] buffer = null;
