@@ -141,6 +141,19 @@ padding:1em 1.5em;
 margin:1em auto;
 display:inline-block
 }
+#social {
+display:-webkit-flex;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+-webkit-align-items:center;
+align-items:center;
+height:50px;
+margin:35px
+}
+#social > * {
+margin:0 10px;
+}
 
 #m {
 }
