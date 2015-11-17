@@ -10,7 +10,7 @@ namespace dentoncitycouncil.Pages {
             content += "<hr />";
             var token_support = Guid.NewGuid().ToString("N");
             //content += $"<div class=\"f\">{GetFormSupport()}{GetFormDonate()}</div>"; 
-            content += "<hr /><div class=\"tac\">'Thank you for your support. The donation filing period for the 2015 election has closed.</div>";
+            content += "<div class=\"tac\">'Thank you for your support. The donation filing period for the 2015 election has closed.</div>";
             content += "<hr />";
             content += "<img src=\"/image/HelpElect\" />";
             return content;
