@@ -9,7 +9,8 @@ namespace dentoncitycouncil.Pages {
             content = content.Replace("\r\n", "<br />");
             content += "<hr />";
             var token_support = Guid.NewGuid().ToString("N");
-            content += $"<div class=\"f\">{GetFormSupport()}{GetFormDonate()}</div>"; //<hr /><div class=\"tac\">Please share your interest in my campaign with your family, friends, and neighbors. Together we can win on November 3!</div>";
+            //content += $"<div class=\"f\">{GetFormSupport()}{GetFormDonate()}</div>"; 
+            content += "<hr /><div class=\"tac\">'Thank you for your support. The donation filing period for the 2015 election has closed.</div>";
             content += "<hr />";
             content += "<img src=\"/image/HelpElect\" />";
             return content;
