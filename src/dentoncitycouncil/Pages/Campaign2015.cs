@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace dentoncitycouncil.Pages {
-    public class Home : Site.Page {
+    public class Campaign2015 : Site.Page {
 
         public static string GenerateContent() {
             var sb = new StringBuilder();
-            var links = JsonConvert.DeserializeObject<List<Site.Link>>(Util.File.LoadToString("Links/Home.json").Result);
-            var content = Util.File.LoadToString("Content/Home.txt").Result;
-            
+            var links = JsonConvert.DeserializeObject<List<Site.Link>>(Util.File.LoadToString("Links/Campaign2015.json").Result);
+            var content = Util.File.LoadToString("Content/Campaign2015.txt").Result;
+
             sb.Append(content.Replace("\r\n", "<br />"));
-            sb.Append("<br /><br />" +  Site.Svg.Signature + "<img src=\"/image/Josh-Denton-Dogs\" />");
+            sb.Append("<img src=\"/image/Josh-Denton-Dogs\" />");
             sb.Append("<hr />The links below are to relevant Portsmouth Herald articles and letters to the editor I authored:<br /><br />");
             foreach (var i in links) {
                 sb.Append($"<a href=\"{i.Url}\" target=\"_blank\">{i.Title}</a><br />{i.Date.ToString("MMMM dd, yyyy")}");
@@ -41,29 +42,29 @@ namespace dentoncitycouncil.Pages {
 
         public override string Key {
             get {
-                return "home";
+                return "2015";
             }
         }
         public override string Path {
             get {
-                return string.Empty;
+                return "2015 Campaign";
             }
         }
         public override string Header {
             get {
-                return "Home";
+                return "2015 Campaign";
             }
         }
 
         public override string Title {
             get {
-                return Application.Title;
+                return Application.Title + " - 2015 Campaign";
             }
         }
 
         public override string TitleNav {
             get {
-                return "Home";
+                return "2015 Campaign";
             }
         }
     }
