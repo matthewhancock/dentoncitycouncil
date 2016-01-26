@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using System.Threading.Tasks;
@@ -81,6 +81,7 @@ namespace dentoncitycouncil {
             public static Site.Page Home = new dentoncitycouncil.Pages.Home();
             public static Site.Page Bio = new dentoncitycouncil.Pages.Bio();
             public static Site.Page Campaign2013 = new dentoncitycouncil.Pages.Campaign2013();
+            public static Site.Page Campaign2015 = new dentoncitycouncil.Pages.Campaign2015();
             public static Site.Page HelpElect = new dentoncitycouncil.Pages.HelpElect();
             public static Site.Page Sustainability = new dentoncitycouncil.Pages.Sustainability();
         }
@@ -89,7 +90,7 @@ namespace dentoncitycouncil {
             (new Util.Html.Head.Tag("link", new Dictionary<string, string> { { "rel", "stylesheet" }, { "type", "text/css" }, { "href", "//cloud.typography.com/607958/780628/css/fonts.css" } })).Output() +
             (new Util.Html.Head.Tag.Javascript("/js")).Output() + (new Util.Html.Head.Tag.Javascript("//platform.twitter.com/widgets.js")).Output() + (new Util.Html.Head.Tag.Javascript("//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=175259985884771&version=v2.0")).Output();
         private static string body_start = $"<div id=\"c\"><header id=\"h\"><section id=\"h_section1\"><div id=\"h-logo\">{Site.Svg.JoshDenton}</div></section><section id=\"h_section2\"><div id=\"h-logo2\">{Site.Svg.CityCouncil}</div></section><hr id=\"h_hr\" /></header><nav id=\"n\" data-key=\"";
-        private static string body_mid = "\">" + Pages.Home.NavLink + Pages.Bio.NavLink + Pages.Campaign2013.NavLink + Pages.Sustainability.NavLink + Pages.HelpElect.NavLink + "</nav><main id=\"m\"><section id=\"content\">";
+        private static string body_mid = "\">" + Pages.Home.NavLink + Pages.Bio.NavLink + Pages.Campaign2015.NavLink + Pages.Campaign2013.NavLink + Pages.Sustainability.NavLink + Pages.HelpElect.NavLink + "</nav><main id=\"m\"><section id=\"content\">";
         private static string body_end = $"</section></main><footer id=\"f\"><aside id=\"social\"><a href=\"https://twitter.com/Denton4PortCity\" class=\"twitter-follow-button\" data-show-count=\"false\" data-size=\"large\" data-dnt=\"true\">Follow @Denton4PortCity</a><div class=\"fb-like-box\" data-href=\"https://www.facebook.com/DentonForCityCouncil\" data-colorscheme=\"light\" data-show-faces=\"false\" data-header=\"false\" data-stream=\"false\" data-show-border=\"false\"></div></aside><div id=\"f_disclaimer\">Paid for by Josh Denton for City Council</div><span>Candidate's Note: All views are Josh's and not those of his current or former employers.</span><hr /></footer></div>";
         private async Task OutputPage(HttpResponse Response, string Path, string[] Parameters = null) {
             Site.Page page = null;
@@ -100,6 +101,8 @@ namespace dentoncitycouncil {
                 page = Pages.Bio;
             } else if (Path == Pages.Campaign2013.Path) {
                 page = Pages.Campaign2013;
+            } else if (Path == Pages.Campaign2015.Path) {
+                page = Pages.Campaign2015;
             } else if (Path == Pages.HelpElect.Path) {
                 page = Pages.HelpElect;
             } else if (Path == Pages.Sustainability.Path) {
@@ -119,6 +122,8 @@ namespace dentoncitycouncil {
                 await Json(Response, Pages.Bio);
             } else if (Key == Pages.Campaign2013.Key) {
                 await Json(Response, Pages.Campaign2013);
+            } else if (Key == Pages.Campaign2015.Key) {
+                await Json(Response, Pages.Campaign2015);
             } else if (Key == Pages.HelpElect.Key) {
                 await Json(Response, Pages.HelpElect);
             } else if (Key == Pages.Sustainability.Key) {
